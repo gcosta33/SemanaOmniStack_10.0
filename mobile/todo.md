@@ -1,0 +1,6 @@
+- [ ] receber dintancia maxima via api
+- [ ] enviar distancia maxima via app
+- [ ] utilizar webview para permitir adição de devs via app (somente para teste)
+- [ ] utilizar webview para permitir ao usuario se cadastrar via app
+- [ ] WEB - frontend para edição e exclusão
+- [ ] colocar techs para UPERCASE no backend e no app
