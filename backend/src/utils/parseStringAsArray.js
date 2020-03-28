@@ -1,3 +1,3 @@
 module.exports= (arrayAsString)=>{
-    return arrayAsString.split(',').map(string => string.trim());
+    return arrayAsString.toUpperCase().split(',').map(string => string.trim());
 }

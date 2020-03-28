@@ -3,4 +3,4 @@
 - [ ] utilizar webview para permitir adição de devs via app (somente para teste)
 - [ ] utilizar webview para permitir ao usuario se cadastrar via app
 - [ ] WEB - frontend para edição e exclusão
-- [ ] colocar techs para UPERCASE no backend e no app
+- [x] colocar techs para UPERCASE no backend e no app
