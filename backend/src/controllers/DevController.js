@@ -3,6 +3,7 @@ const Dev = require('../models/Dev')
 
 const parseArrayAsString = require('../utils/parseStringAsArray')
 const objectIdIsValid = require('../utils/objectIdIsValid')
+const { findConnections,sendMessage } = require('../websocket')
 
 module.exports = {
     async store(request, response) {
@@ -31,6 +32,13 @@ module.exports = {
             });
 
             console.log(name, avatar_url, bio, github_username, techsArray);
+
+            const sendSockteMessageTo = findConnections(
+                { latitude, longitude },
+                techsArray
+            )
+
+            sendMessage( sendSockteMessageTo, 'new-dev', dev )
 
         }
         return response.json(dev);

@@ -7,7 +7,7 @@ import { requestPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 import { MaterialIcons } from '@expo/vector-icons'
 
 import api from '../services/api'
-import { connect,disconnect } from '../services/socket'
+import { connect,disconnect,subcribeToNewDev } from '../services/socket'
 
 
 function Main({ navigation }) {
@@ -36,7 +36,13 @@ function Main({ navigation }) {
         loadInitialLocation()
     }, [])
 
+    useEffect(() =>{
+        subcribeToNewDev( dev=> setDevs([ ...devs, dev ]))
+    },[devs] )
+
     function setupWebSocket(){
+        disconnect()
+
         const { latitude,longitude } = currentRegion
         connect(
             latitude,
@@ -108,7 +114,7 @@ function Main({ navigation }) {
             <KeyboardAvoidingView
                 style={styles.searchForm}
                 behavior='padding'
-                keyboardVerticalOffset={100}
+                keyboardVerticalOffset={5}
                 >
                 <TextInput
                     style={styles.searchInput}
