@@ -77,17 +77,20 @@ module.exports = {
         }
     },
     async delete(request, response) {
+        
         const { _id } = request.body;
+
+        console.log(_id);
 
         if(objectIdIsValid(_id)){
             const dev = await Dev.findOneAndDelete({_id})
             if(dev){
                 return response.send(200)
             }else{
-                return response.send(404)
+                return response.send(401)
             }
         }else{
-            return response.send(404)
+            return response.send(403)
         }
 
     }

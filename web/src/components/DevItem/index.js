@@ -1,11 +1,16 @@
 import React from 'react'
-
+import { devDelete } from '../../services/api'
 import './style.css'
 
 
 function DevItem ({ dev }){
+
     return (
         <li className="dev-item">
+            <button 
+              className='delete'
+              onClick={()=>devDelete(dev._id)}
+            >X</button>
             <header>
               <img src={dev.avatar_url} alt={dev.name}/>
               <div className="user-info">

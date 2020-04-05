@@ -4,6 +4,11 @@ li.dev-item {
     box-shadow: 0 0 14px 0 rgba( 0, 0, 0, 0.2);
     border-radius: 2px;
     padding: 20px;
+    z-index: 1;
+}
+
+li.dev-item:hover .delete{
+    display: inline;
 }
 
 li.dev-item header {
@@ -50,3 +55,18 @@ li.dev-item a{
 li.dev-item a:hover {
     color:#5a2ea6
 }
+
+li.dev-item .delete{
+    float: right;
+    display: none;
+    left: 20vh;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    background-color: #ca315f;
+}
+
+li.dev-item .delete:hover{
+    background-color: #8a2443;
+    transition: background 0.5s;
+}   

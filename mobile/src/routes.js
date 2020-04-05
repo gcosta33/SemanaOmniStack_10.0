@@ -1,12 +1,14 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack'
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+
 
 import Main from './pages/Main'
 import Profile from './pages/Profile'
+import webView from './pages/webView'
 
 
-const Routes = createAppContainer(
-    createStackNavigator({
+const stackNavigator = createStackNavigator({
         Main: {
             screen: Main,
             navigationOptions: {
@@ -29,6 +31,25 @@ const Routes = createAppContainer(
             headerTitleAlign:'center'
         },
     })
-)
 
-export default Routes;
+const RouteConfigs ={
+    stack: {
+        screen: stackNavigator,
+        navigationOptions: {
+        title: 'DevMap'
+    }},
+    webView: {
+        screen: webView,
+        navigationOptions: {
+        title: 'Cadastro'
+    }}
+}
+const TabNavigatorConfig ={
+    style: {
+      backgroundColor: 'blue',
+    },
+}
+const tabNavigator = createAppContainer( createBottomTabNavigator(RouteConfigs, TabNavigatorConfig))
+
+
+export default tabNavigator;

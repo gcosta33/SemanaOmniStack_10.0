@@ -3,12 +3,12 @@ import React from 'react';
 import { WebView } from 'react-native-webview';
 
 function Profile({ navigation }) {
-    const github_username = navigation.getParam('github_username')
-
+   
     return(
         <WebView
+            geolocationEnabled={true}
             style={{ flex:1 }}
-            source={{ uri: `https://github.com/${github_username}`}}
+            source={{ uri: 'http://192.168.100.24:3000'}}
         ></WebView>
     )
 }
