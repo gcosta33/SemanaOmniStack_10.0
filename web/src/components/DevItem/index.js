@@ -1,15 +1,25 @@
 import React from 'react'
-import { devDelete } from '../../services/api'
+
 import './style.css'
 
 
-function DevItem ({ dev }){
+function DevItem ({ dev,setMessage }){
+
 
     return (
         <li className="dev-item">
             <button 
               className='delete'
-              onClick={()=>devDelete(dev._id)}
+              onClick={()=>
+                setMessage(
+                  {
+                  action:"exclusão",
+                  devName:dev.name,
+                  _id:dev._id
+                }
+              )
+                
+              }
             >X</button>
             <header>
               <img src={dev.avatar_url} alt={dev.name}/>

@@ -6,14 +6,26 @@ import './App.css'
 import './Sidebar.css'
 import './Main.css'
 
+import ConfirmModal from './components/ConfirmModal'
 import DevItem from './components/DevItem'
 import DevForm from './components/DevForm'
 
+// import  { devCreate } from './services/api'
 
 function App() {
 
   const [devs, setDevs] = useState([])
+  const [message,setMessage] = useState({})
 
+  // useEffect(()=>{
+  //   async function load(){
+  //   const dev = await devCreate()
+  //   console.log(dev);
+  //   setDevs([dev])}
+  //   load()
+  // },[]
+  // )
+  
 
   async function handleAddDev(data) {
    
@@ -42,10 +54,15 @@ function App() {
         <strong>Cadastrar</strong>
         <DevForm onSubmit={handleAddDev}/>
       </aside>
+      <ConfirmModal 
+          message={
+            message
+          }
+        ></ConfirmModal>
       <main>
         <ul>
           {devs.map( dev =>(
-            <DevItem  key={dev._id} dev={dev} />
+            <DevItem  setMessage={setMessage}  key={dev._id} dev={dev} />
           ))}
         </ul>
       </main>
